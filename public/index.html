@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=0.5">
+  <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no viewport-fit=cover">
+  <title>网易严选</title>
+  <!--引入重置的css-->
+  <link rel="stylesheet" href="/css/reset.css">
+  <!--引入图标字体-->
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1425304_hmmr8qi9ep5.css">
+  <!-- 引入mint-ui样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+  <!--解决移动端点击事件0.3延迟问题: 使用fastclick库-->
+  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+  <script>
+    // 解决移动端点击事件0.3延迟问题
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function () {
+        FastClick.attach(document.body);
+      }, false);
+    }
+    //取消默认行为
+		document.addEventListener('touchstart',function(event){
+			event.preventDefault();
+		});
+		
+		//解决点透事件
+		!(function(){
+			var aNodes = document.querySelectorAll('a');
+			for (var i=0;i<aNodes.length;i++) {
+				aNodes[i].addEventListener('touchstart',function(){
+					window.location.href = this.href;
+				})
+			}
+		})();
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
